@@ -43,9 +43,7 @@ app.get('/players/', async (request, response) => {
           cricket_team;`
   const playersArray = await database.all(getPlayersQuery)
   response.send(
-    playersArray.map(eachPlayer => 
-      convertDbObjectToResponseObject(eachPlayer)
-    )
+    playersArray.map(eachPlayer => convertDbObjectToResponseObject(eachPlayer)),
   )
 })
 
