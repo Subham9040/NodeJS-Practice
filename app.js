@@ -61,7 +61,7 @@ app.get('/players/:playerId', async (request, response) => {
 })
 
 app.post('/players', async (request, response) => {
-  const {playerNmae, jerseyNumber, role} = request.body
+  const {playerName, jerseyNumber, role} = request.body
   const postPlayerQuery = `
         INSERT INTO
             cricket_team(playerName, jerseyNumber, role)
