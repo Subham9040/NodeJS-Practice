@@ -56,7 +56,7 @@ app.get('/players/:playerId', async (request, response) => {
             cricket_team
         WHERE 
             player_id = ${playerId};`
-  const player = await database.get(getPlayerQuery)
+  const player = await database.get(getPlayersQuery)
   response.send(convertDbObjectToResponseObject(player))
 })
 
@@ -64,7 +64,7 @@ app.post('/players', async (request, response) => {
   const {playerName, jerseyNumber, role} = request.body
   const postPlayerQuery = `
         INSERT INTO
-            cricket_team(playerName, jerseyNumber, role)
+            cricket_team(player_name, jersey_number, role)
         VALUES
             ('${playerName}', '${jerseyNumber}', '${role}');`
   const player = await database.run(postPlayerQuery)
